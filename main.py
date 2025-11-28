@@ -50,6 +50,10 @@ async def solve(request: Request, background_tasks: BackgroundTasks):
 
     return JSONResponse(status_code=200, content={"status": "ok"})
 
+@app.get("/")
+def home():
+    return {"message": "LLM Agent is running. Send POST requests to /solve"}
 
 if __name__ == "__main__":
+
     uvicorn.run(app, host="0.0.0.0", port=7860)
